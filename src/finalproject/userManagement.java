@@ -3,10 +3,6 @@ package finalproject;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Darian Ramos
- */
 public class userManagement {
         String name;
     String lastName;

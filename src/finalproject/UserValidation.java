@@ -106,6 +106,17 @@ public class UserValidation {
     
     public void LicensePlValidator(String licensePlate){
         
+        String licensePl = "^[A-Z]{2,3}-\\d{4,6}$";
+        
+        Pattern pattern = Pattern.compile(licensePl);
+        Matcher matcher = pattern.matcher(licensePlate);
+        boolean isValidPlate = true;
+        
+        if(!isValidPlate){
+            throw new IllegalArgumentException("Revisar los datos de la matricula");
+        } else {
+            System.out.println("Placa validada exitosamente.");
+        }
         
     }
 }
