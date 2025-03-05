@@ -4,7 +4,7 @@ package finalproject;
 import java.util.Scanner;
 
 public class userManagement {
-        String name;
+    String name;
     String lastName;
     String phoneNumb;
     String email;
@@ -75,11 +75,19 @@ public class userManagement {
                     System.out.println("Ingrese los datos del automovil.");
                     System.out.print("Placa: ");
                     licensePlate = scanner.nextLine();
+                    System.out.print("Marca: ");
+                    brand = scanner.nextLine();
+                    System.out.print("Modelo: ");
+                    model = scanner.nextLine();
+                    System.out.print("Color: ");
+                    color = scanner.nextLine();
+                    System.out.print("Año: ");
+                    year = scanner.nextInt();
                     isValidCar = true;
                 }
                 
                 } catch(IllegalArgumentException e){
-                System.out.println("La licencia es invalida.");
+                System.out.println("ALGO HA SALIDO MAL. Favor revisar la infromacion.");
                 continue;
           } 
             } else {
