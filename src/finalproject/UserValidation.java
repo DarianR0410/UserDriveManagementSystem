@@ -62,7 +62,7 @@ public class UserValidation {
                     + "- Al menos un numero"
                     + "- Al menos un caracter especial"
                     + "- Debe ser de 8 caracteres como minimo" );
-        } else {
+        } else if (validPassword){
             System.out.println("Contraseña validada exitosamente.");
         }
         
@@ -99,7 +99,7 @@ public class UserValidation {
             
             
    
-        } else {
+        } else if (isValidLicence){
             System.out.println("Licencia validada de forma exitosa.");
         }
     }
@@ -119,6 +119,7 @@ public class UserValidation {
         }
         
     }
+
 }
 
 

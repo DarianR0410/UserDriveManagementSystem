@@ -20,6 +20,7 @@ public class userManagement {
     
     
     Scanner scanner = new Scanner(System.in);
+    DataBase db = new DataBase();
     
     public void RegisterCliente(){
         UserValidation userValidation = new UserValidation();
@@ -32,6 +33,7 @@ public class userManagement {
             lastName = scanner.nextLine();
             
             System.out.print("Correo: ");
+            email = scanner.nextLine();
             try{
                 userValidation.emailValidation(email);
                 System.out.println("El correo se ha validado de forma exitosa.");
@@ -51,24 +53,26 @@ public class userManagement {
             }
            
             
-            System.out.print("Rol:");
-            System.out.println("1- Pasajero.");
-            System.out.println("2- Conductor");
-            int option = scanner.nextInt();
-            scanner.hasNextLine();
+                System.out.println("Rol:");
+                System.out.println("1- Pasajero.");
+                System.out.println("2- Conductor");
+                int option = scanner.nextInt();
+                
+            scanner.nextLine();
             String role = "";
             
             if(option == 1){
                 role = "Pasajero";
             } else if(option == 2){
                 role = "Conductor";
-            System.out.print("Licencia: ");
-            license = scanner.nextLine();
             
             try {
                 
-                userValidation.LicenceValidation(license);
-                
+            System.out.print("Licencia: ");
+            license = scanner.nextLine();
+            
+            
+            userValidation.LicenceValidation(license);
                 boolean isValidCar = false;
                 
                 while(!isValidCar){
@@ -84,10 +88,11 @@ public class userManagement {
                     System.out.print("Año: ");
                     year = scanner.nextInt();
                     isValidCar = true;
+                    scanner.nextLine();
                 }
                 
                 } catch(IllegalArgumentException e){
-                System.out.println("ALGO HA SALIDO MAL. Favor revisar la infromacion.");
+                System.out.println("ALGO HA SALIDO MAL. Favor revisar la informacion.");
                 continue;
           } 
             } else {
@@ -104,13 +109,18 @@ public class userManagement {
                 
                 try{
                     userValidation.PasswordValidation(password);
-                    isPasswordValid = true;
+                    String hashedPassword = userValidation.HashPassword(password);
+                    isPasswordValid = false;
                     System.out.println("Contraseña validada correctamente.");
                 }catch(IllegalArgumentException e) {
                     System.out.println("Su contraseña no cumple los requerimientos minimos.");
                 }
                 
             }
+            
+            db.Register(name, lastName, email, password, license, phoneNumb, role);
+            System.out.println("Usted se ha registrado de forma exitosa.");
+            System.out.println("Bienvenido!");
         }
         
     };
@@ -123,13 +133,5 @@ public class userManagement {
         password = scanner.nextLine();
         
         
-    };
-    
-    public void SignOut(String email, String password){
-        
-        System.err.print("Correo Electronico: ");
-        email = scanner.nextLine();
-        System.err.print("Contraseña");
-        password = scanner.nextLine();
     };
 }
