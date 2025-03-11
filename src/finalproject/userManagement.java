@@ -15,15 +15,16 @@ public class userManagement {
     String brand;
     String color;
     String year;
+    String hashedPassword;
     boolean isValid = true;
     boolean isPasswordValid = true;
     
     
     Scanner scanner = new Scanner(System.in);
+    UserValidation userValidation = new UserValidation();
     DataBase db = new DataBase();
     
     public void RegisterCliente(){
-        UserValidation userValidation = new UserValidation();
         
         
         while(isValid){
@@ -39,7 +40,7 @@ public class userManagement {
                 System.out.println("El correo se ha validado de forma exitosa.");
             }catch (IllegalArgumentException e){
                 System.out.println("El correo no cumple los requerimientos, inserte un formato valido.");
-                continue;
+                break;
             }
             
             System.out.print("Numero de telefono: ");
@@ -57,9 +58,9 @@ public class userManagement {
                 System.out.println("1- Pasajero.");
                 System.out.println("2- Conductor");
                 int option = scanner.nextInt();
+                scanner.nextLine();
                 
-            scanner.nextLine();
-            String role = "";
+                String role = "";
             
             if(option == 1){
                 role = "Pasajero";
@@ -77,7 +78,10 @@ public class userManagement {
                 boolean isValidInfo = false;
                 
                 while(!isValidCar){
+                    
                     System.out.println("Ingrese los datos del automovil.");
+                    
+                    try{
                     System.out.print("Placa: ");
                     licensePlate = scanner.nextLine();
                     userValidation.LicensePlValidator(licensePlate);
@@ -89,13 +93,16 @@ public class userManagement {
                     color = scanner.nextLine();
                     System.out.print("Año: ");
                     year = scanner.nextLine();
+                        
+                    } catch(IllegalArgumentException e){
+                        System.out.println("Algo ha salido mal! La informacion proporcionada no cumple los requerimientos.");
+                    }
+                   
                     isValidCar = true;
                     
                 }
                
-                if (!isValidInfo){
-                    db.RegisterCar(licensePlate, brand, model, color, year);
-                }
+                db.RegisterCar(licensePlate, brand, model, color, year);
                 
                 } catch(IllegalArgumentException e){
                 System.out.println("ALGO HA SALIDO MAL. Favor revisar la informacion.");
@@ -116,7 +123,7 @@ public class userManagement {
                 
                 try{
                     userValidation.PasswordValidation(password);
-                    String hashedPassword = userValidation.HashPassword(password);
+                    hashedPassword = userValidation.HashPassword(password);
                     isPasswordValid = false;
                     System.out.println("Contraseña validada correctamente.");
                 }catch(IllegalArgumentException e) {
@@ -128,17 +135,33 @@ public class userManagement {
             db.Register(name, lastName, email, password, license, phoneNumb, role);
             System.out.println("Usted se ha registrado de forma exitosa.");
             System.out.println("Bienvenido!");
+            isValid = false;
         }
         
     };
     
     public void SignIn(String email, String password){
         
+        Boolean isValid = true;
+        
         System.out.print("Correo Electronico: ");
         email = scanner.nextLine();
         System.out.print("Contraseña");
         password = scanner.nextLine();
         
+        db.LogIn(email, password);
+        hashedPassword = userValidation.HashPassword(password);
+
+        if(isValid){
+            System.out.println("Ha iniciado sesion.");
+        } else {
+            System.out.println("Ha ocurrido un error!");
+        }
+                
+        
+        
+        
         
     };
 }
+ 
