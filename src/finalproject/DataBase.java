@@ -23,7 +23,7 @@ public class DataBase{
     String model;
     String brand;
     String color;
-    int year;
+    String year;
         
     public void Register(String name, String lastName,String email,String password, String license, String phoneNumb, String rol){
         
@@ -79,6 +79,49 @@ public class DataBase{
         
     }
     
+    public void RegisterCar(String licensePlate, String brand, String model, String year, String color){
+        Connection conn = null;
+        PreparedStatement prepStmt = null;
+        
+        try{
+       String path = "jdbc:mysql://localhost:3306/SavePassager";
+       String username = "root";
+       String dbpassword = "Darian0110*";
+       
+       conn = DriverManager.getConnection(path, username, password);
+       
+      String sqlQuery = "insert into automovil (placa, marca, modelo, año, color) values (?, ?, ?, ?, ?)";
+      
+      prepStmt = conn.prepareStatement(sqlQuery);
+      
+      prepStmt.setString(1, licensePlate);
+      prepStmt.setString(2, brand);
+      prepStmt.setString(3, model);
+      prepStmt.setString(4, year);
+      prepStmt.setString(5, color);
+      
+      
+       prepStmt.executeUpdate();
+            
+            
+        }catch (SQLException e){
+            System.out.println("ALGO HA SALIDO MAL! Favor revisar la informacion");
+        } finally{
+            try {
+                if(prepStmt != null){
+                    prepStmt.close();
+                }
+                
+                if (conn != null) {
+                    conn.close();
+                    
+                }
+            } catch (SQLException e){
+                System.out.println("ERROR! Cerrando conexion con la base de datos.");
+            }
+        }
+    }
+    
 public void LogIn(String email, String password){
    Connection conn = null;
    PreparedStatement prepStmt = null;
@@ -124,7 +167,7 @@ public void LogIn(String email, String password){
    } 
    
    }
-} 
+}
     
     
 }

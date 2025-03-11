@@ -14,7 +14,7 @@ public class userManagement {
     String model;
     String brand;
     String color;
-    int year;
+    String year;
     boolean isValid = true;
     boolean isPasswordValid = true;
     
@@ -74,11 +74,13 @@ public class userManagement {
             
             userValidation.LicenceValidation(license);
                 boolean isValidCar = false;
+                boolean isValidInfo = false;
                 
                 while(!isValidCar){
                     System.out.println("Ingrese los datos del automovil.");
                     System.out.print("Placa: ");
                     licensePlate = scanner.nextLine();
+                    userValidation.LicensePlValidator(licensePlate);
                     System.out.print("Marca: ");
                     brand = scanner.nextLine();
                     System.out.print("Modelo: ");
@@ -86,18 +88,23 @@ public class userManagement {
                     System.out.print("Color: ");
                     color = scanner.nextLine();
                     System.out.print("Año: ");
-                    year = scanner.nextInt();
+                    year = scanner.nextLine();
                     isValidCar = true;
-                    scanner.nextLine();
+                    
+                }
+               
+                if (!isValidInfo){
+                    db.RegisterCar(licensePlate, brand, model, color, year);
                 }
                 
                 } catch(IllegalArgumentException e){
                 System.out.println("ALGO HA SALIDO MAL. Favor revisar la informacion.");
                 continue;
           } 
+            
             } else {
                 System.out.println("Opción inválida. Intente nuevamente.");
-                continue;
+                break;
             }
             
             
@@ -127,9 +134,9 @@ public class userManagement {
     
     public void SignIn(String email, String password){
         
-        System.err.print("Correo Electronico: ");
+        System.out.print("Correo Electronico: ");
         email = scanner.nextLine();
-        System.err.print("Contraseña");
+        System.out.print("Contraseña");
         password = scanner.nextLine();
         
         
