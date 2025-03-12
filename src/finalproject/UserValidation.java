@@ -25,7 +25,7 @@ public class UserValidation {
         if(!isValid){
             throw new IllegalArgumentException("El correo electronico no cumple los requerimientos suficientes.");
         } else {
-            System.err.println("Correo electronico exitosamente validado.");
+            System.out.println("Correo electronico exitosamente validado.");
         }
         
     }
@@ -40,9 +40,9 @@ public class UserValidation {
        boolean itMatches = matcher.matches();
        
        if(!itMatches){
-           System.err.println("El numero de telefono no cumple los requerimientos.");
+           System.out.println("El numero de telefono no cumple los requerimientos.");
        } else {
-           System.err.println("Numero telefonico validado.");
+           System.out.println("Numero telefonico validado.");
        }
     }
     
