@@ -17,6 +17,7 @@ public class DataBase{
     public void Register(String name, String lastName,String email,String password, String license, String phoneNumb, String rol){
         
        //Since I'll be working with passing values to a database I created a connection object and a preparedStatement one.
+       //Declare the connection and prepared statement inside each method is considered good practice, with this I limit its scoopability instead and the autoclosure of the resources.
         Connection  conn= null;
         PreparedStatement prepStmt = null;
         
@@ -87,7 +88,6 @@ public class DataBase{
     public void RegisterCar(String licensePlate, String brand, String model, String year, String color){
         
         //Same case as the Register method.
-        //Declare the connection and prepared statement inside each method is considered good practice, with this I limit its scoopability instead and the autoclosure of the resources.
         Connection conn = null;
         PreparedStatement prepStmt = null;
         
@@ -195,6 +195,10 @@ public void LogIn(String email, String password){
    } 
    
    }
+}
+
+public void QrStorage(){
+    
 }
     
     
