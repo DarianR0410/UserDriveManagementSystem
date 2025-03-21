@@ -8,69 +8,45 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class UserValidation {
     
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    private static final String PHONE_PATTERN = "^(\\+1[-.\\s]?)?(809|829|849)[-.\\s]?\\d{3}[-.\\s]?\\d{4}$";
+    private static final String PASSWORD_PATTERN = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+]).{8,}$";
+    private static final String LICENSE_PATTEN = "^\\d{9}$";
+    private static final String LICENSE_PLATE_PATTERN = "^[A-Z]{2,3}-\\d{4,6}$";
 
     public String emailValidation(String email){
-        
-
-        String emailFormat = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        
-
-        Pattern pattern = Pattern.compile(emailFormat, Pattern.CASE_INSENSITIVE);
-        
-
-        Matcher matcher = pattern.matcher(email);
-
-        boolean isValid =  matcher.matches();
-
-        if(!isValid){
-            throw new IllegalArgumentException("El correo electronico no cumple los requerimientos suficientes.");
-        } else {
-            System.out.println("Correo electronico exitosamente validado.");
-        }
-        
-        return "Valid email";
+       if(isValidPattern(email, EMAIL_PATTERN, Pattern.CASE_INSENSITIVE)){
+           System.out.println("Correo validado.");
+           return "Valid email";
+       } else {
+           throw new IllegalArgumentException("El correo electronico no cumple los requerimientos");
+       }
     }
 
     public String PhoneNumbValidation(String phoneNumb){
-        
-        String phoneFormat = "^(\\+1[-.\\s]?)?(809|829|849)[-.\\s]?\\d{3}[-.\\s]?\\d{4}$"; 
-
-        Pattern pattern = Pattern.compile(phoneFormat);
-        Matcher matcher = pattern.matcher(phoneNumb);
-       boolean itMatches = matcher.matches();
-       
-       if(!itMatches){
-           System.out.println("El numero de telefono no cumple los requerimientos.");
-       } else {
-           System.out.println("Numero telefonico validado.");
-       }
-       return "";
+  
+        if(isPatternValid(phoneNumb, PHONE_PATTERN)){
+            System.out.println("Numero telefonico validado.");
+            return "Valid phone number";
+        } else {
+            throw new IllegalArgumentException("El numero de telefono no cumple los requerimientos. Favor intentar nuevamente.");
+        }
     }
     
  
     public String PasswordValidation(String password){
-        
-
-        String passwordFormat = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!@#$%^&*()_+]).{8,}$";
-        
-
-        Pattern pattern = Pattern.compile(passwordFormat);
-        Matcher matcher = pattern.matcher(password);
-        boolean validPassword = matcher.matches();
-
-        if(!validPassword){
-            throw new IllegalArgumentException("La contraseña no cumple los requerimientos minimos"
-                    + "La contraseña requiere de: " 
-                    + "- Al menos una letra mayuscula"
-                    + "- Al menos una letra minuscula"
-                    + "- Al menos un numero"
-                    + "- Al menos un caracter especial"
-                    + "- Debe ser de 8 caracteres como minimo" );
-        } else if (validPassword){
-            System.out.println("Contraseña validada exitosamente.");
+        if(isPatternValid(password, PASSWORD_PATTERN)){
+            System.out.println("Contraseña validada exitosamente");
+            return "Valid password";
+        } else {
+            throw new IllegalArgumentException("La contraseña no cumple los requerimientos minimos. " + 
+                "La contraseña requiere de: " + 
+                "- Al menos una letra mayuscula. " +
+                "- Al menos una letra minuscula. " +
+                "- Al menos un numero. " +
+                "- Al menos un caracter especial. " +
+                "- Debe ser de 8 caracteres como minimo.");
         }
-        
-        return "";
     }
     
  
@@ -81,7 +57,7 @@ public class UserValidation {
     }
     
  
-    public void viewPassword(String password, String hashedPassword){
+    public void verifyPassword(String password, String hashedPassword){
  
         if(BCrypt.checkpw(password, hashedPassword)){
             System.out.println("Contraseña validada.");
@@ -92,50 +68,40 @@ public class UserValidation {
     
  
     public String LicenseValidation(String driversLicense){
-        
-
-        String licence = "^\\d{9}$";
- 
-        Pattern pattern = Pattern.compile(licence);
-        Matcher matcher = pattern.matcher(driversLicense);
-        boolean isValidLicence = true;
-        
-
-        if(!isValidLicence){
-            throw new IllegalArgumentException("La licencia no es valida"
-                    + "Revisar: "
-                    + "- Que no contenga letras."
-                    + "- Que sean exactamente 9 digitos."
-            );
-            
-            
-   
-        } else if (isValidLicence){
+        if(isPatternValid(driversLicense, LICENSE_PATTEN)){
             System.out.println("Licencia validada de forma exitosa.");
+            return "Valida license";
+        } else {
+            throw new IllegalArgumentException("La licencia no es valida. " +
+                "Revisar: " +
+                "- Que no contenga letras. " +
+                "- Que sean exactamente 9 digitos.");
         }
-        
-        return "";
     }
     
 
     public String LicensePlValidator(String licensePlate){
-        
 
-        String licensePl = "^[A-Z]{2,3}-\\d{4,6}$";
-        
-
-        Pattern pattern = Pattern.compile(licensePl);
-        Matcher matcher = pattern.matcher(licensePlate);
-        boolean isValidPlate = true;
-
-        if(!isValidPlate){
-            throw new IllegalArgumentException("Revisar los datos de la matricula");
+        if(isPatternValid(licensePlate, LICENSE_PLATE_PATTERN)){
+            System.out.println("Matricula validada exitosamente");
+            return "Valid Lic. Plate";
         } else {
-            System.out.println("Placa validada exitosamente.");
+            throw new IllegalArgumentException("Favor revisar los datos de su matricula");
         }
-        
-        return "";
     }
+    
+    
+    private boolean isValidPattern(String input, String patternString, int flags){
+        Pattern pattern = Pattern.compile(patternString, flags);
+        Matcher matcher = pattern.matcher(input);
+        
+        return matcher.matches();
+    }
+    
+    private boolean isPatternValid(String input, String patternString){
+        return isValidPattern(input, patternString, 0);
+    }
+
 
 }
 

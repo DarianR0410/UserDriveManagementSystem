@@ -206,7 +206,6 @@ public class UserManagement {
                }
            }
            
-           attempts = 0;
            
            
        }
