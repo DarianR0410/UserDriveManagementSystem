@@ -200,7 +200,8 @@ public class UserManagement {
                attempts++;
                System.out.println("La placa no es valida, favor intentar nuevamente");
                if(attempts == maxAttempts){
-                   System.out.println("Usted ha excedido el numero de atentos.");
+                   System.out.println("Usted ha excedido el numero de intentos.");
+                   System.out.println("Intento: "+ attempts);
                    return false;
                }
            }
