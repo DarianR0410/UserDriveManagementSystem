@@ -14,7 +14,7 @@ public class FinalProject {
         
         
         Scanner scanner = new Scanner(System.in);
-        userManagement userManagement = new userManagement();
+        UserManagement userManagement = new UserManagement();
         
         System.out.println("Welcome to safe passager!");
         System.out.println("Our purpuse is to make sure you're safe while you move around.");
@@ -26,7 +26,7 @@ public class FinalProject {
         
         switch(option){
             case 1: userManagement.RegisterCliente();
-            case 2: userManagement.SignIn(email, password);
+            case 2: 
         }
         
     }
