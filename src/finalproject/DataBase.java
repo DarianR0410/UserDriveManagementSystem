@@ -18,10 +18,11 @@ public class DataBase{
             private static final String DB_USERNAME = "root";
             private static final String DB_PASSWORD = "Darian0110*";
             
-            private static final String SQL_PASSANGER = "insert into Usuario(nombre, apellido, correo, contraseña) values (?, ?, ?, ?)";
+            private static final String SQL_PASSANGER = "insert into usuario(nombre, apellido, correo, contraseña) values (?, ?, ?, ?)";
             private static final String SQL_DRIVER = "insert into conductor(nombre, apellido, correo, licencia, contraseña) values (?, ?, ?, ?, ?)";
             private static final String SQL_CAR = "insert into automovil (placa, marca, modelo, año, color) values (?, ?, ?, ?, ?)";
-            private static final String SQL_LOGIN = "Select * from Usuarios where correo = ? and password = ?";
+            private static final String SQL_LOGIN = "Select * from usuario where correo = ? and contraseña = ?";
+            private static final String SQL_QRCODE = "";
 
     public boolean RegisterPassanger(String name, String lastName,String email,String password){
         

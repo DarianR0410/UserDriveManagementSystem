@@ -26,7 +26,7 @@ public class FinalProject {
         
         switch(option){
             case 1: userManagement.RegisterCliente();
-            case 2: 
+            case 2: userManagement.SignIn(email, password);
         }
         
     }

@@ -93,7 +93,8 @@ public class UserManagement {
         email = scanner.nextLine();
         System.out.print("Contraseña");
         password = scanner.nextLine();
-
+        
+        String hashedPassword = userValidation.HashPassword(password);
         Boolean isSignedIn = db.LogIn(email, password);
 
         if(isSignedIn){
@@ -139,7 +140,7 @@ public class UserManagement {
         
         try {
             userValidation.PasswordValidation(password);
-            userValidation.HashPassword(password);
+         password = userValidation.HashPassword(password);
             
         } catch(IllegalArgumentException e){
             System.out.println("La contraseña no cumple los requisitos. Favor intentar nuevamente");
