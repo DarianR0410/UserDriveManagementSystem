@@ -18,16 +18,17 @@ public class DataBase{
             private static final String DB_USERNAME = "root";
             private static final String DB_PASSWORD = "Darian0110*";
             
-            private static final String SQL_PASSANGER = "insert into usuario(nombre, apellido, correo, contraseña) values (?, ?, ?, ?)";
+            private static final String SQL_PASSENGER = "insert into usuario(nombre, apellido, correo, contraseña) values (?, ?, ?, ?)";
             private static final String SQL_DRIVER = "insert into conductor(nombre, apellido, correo, licencia, contraseña) values (?, ?, ?, ?, ?)";
             private static final String SQL_CAR = "insert into automovil (placa, marca, modelo, año, color) values (?, ?, ?, ?, ?)";
-            private static final String SQL_LOGIN = "Select * from usuario where correo = ? and contraseña = ?";
+            private static final String SQL_LOGIN = "select * from usuario where correo = ? and contraseña = ?";
+            private static final String SQL_PHONE_PASSENGER = "insert into telefono_usuario (telefono) values (?)";
             private static final String SQL_QRCODE = "";
 
-    public boolean RegisterPassanger(String name, String lastName,String email,String password){
+    public boolean RegisterPassenger(String name, String lastName,String email,String password){
         
             
-        try(Connection conn = GetConnection(); PreparedStatement prepStmt = conn.prepareStatement(SQL_PASSANGER)){
+        try(Connection conn = GetConnection(); PreparedStatement prepStmt = conn.prepareStatement(SQL_PASSENGER)){
        
             prepStmt.setString(1, name);
             prepStmt.setString(2, lastName);
@@ -77,6 +78,19 @@ public class DataBase{
         
         return success;
     }
+    
+    public boolean PhoneNumbPassenger(String phoneNumber){
+        try(Connection conn = GetConnection(); PreparedStatement phoneStmt = conn.prepareStatement(SQL_PHONE_PASSENGER)){
+            
+            phoneStmt.setString(1, phoneNumber);
+            
+            int affectedRows = phoneStmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e){
+            SQLException("El numero telefonico no cumple los requerimientos.", e);
+            return false;
+        }
+    };
     
     
     
@@ -141,7 +155,7 @@ private Connection GetConnection() throws SQLException{
 private void CloseResources(PreparedStatement prepStmt, Connection conn){
     try {
         if(prepStmt != null){
-            prepStmt.close();;
+            prepStmt.close();
         }
         
         if(conn != null){
