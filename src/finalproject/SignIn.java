@@ -13,7 +13,7 @@ public class SignIn {
         this.userType = userType;
     }
     
-    public void authenticate(){
+    public void Authenticate(){
         
         if(userType == userType.PASAJERO){
             System.out.println("Iniciando sesion como pasajero...");

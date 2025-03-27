@@ -5,30 +5,15 @@ import java.util.Scanner;
 
 public class FinalProject {
 
-    public static void main(String[] args) {
-        
-        String name;
-        String email = "";
-        String password = "";
-        String role;
-        
-        
-        Scanner scanner = new Scanner(System.in);
-        UserManagement userManagement = new UserManagement();
-        
-        System.out.println("Welcome to safe passager!");
-        System.out.println("Our purpuse is to make sure you're safe while you move around.");
-        System.out.println("Please select one of the following options: ");
-        System.out.println("1- Register");
-        System.out.println("2- Sign in");
-        
-        int option = scanner.nextInt();
-        
-        switch(option){
-            case 1: userManagement.RegisterCliente();
-            case 2: userManagement.SignIn(email, password);
-        }
-        
-    }
+public static void main(String[] args) {
+    Driver driver = new Driver("Joshua", "Almanzar", 25, "80912345678", "A12345");
+    Car car = new Car("Toyota", "Corolla", "ABC-1234", "Rojo", 2020);
+    
+    String data = driver.driverInformation() + " || " + car.carInformation();
+    String path = "output/conductor_auto_qr.png";
+    int size = 300;
+    
+    QrCode.QrGenerator(data, path, size);
+}
     
 }

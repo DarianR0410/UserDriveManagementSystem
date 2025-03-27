@@ -53,7 +53,7 @@ public class UserManagement {
         return;
     }
         
-    db.RegisterPassanger(name, lastName, email, password);
+    db.RegisterPassenger(name, lastName, email, password);
     
             
         System.out.println("Usted se ha registrado como pasajero de forma exitosa.");
@@ -125,6 +125,7 @@ public class UserManagement {
        
        try {
            userValidation.PhoneNumbValidation(phoneNumb);
+           db.PhoneNumbPassenger(phoneNumb);
            
        }catch(IllegalArgumentException e){
            System.out.println("El numero telefonico no cumple los requerimientos.");
