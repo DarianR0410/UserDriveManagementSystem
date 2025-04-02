@@ -5,34 +5,67 @@
     <artifactId>SoftwareQR</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-   
-   <dependencies>
-       
-   <dependency>
-    <groupId>com.miglayout</groupId>
-    <artifactId>miglayout-swing</artifactId>
-    <version>11.4.2</version>
-   </dependency>
-   
-   <dependency>
-    <groupId>com.formdev</groupId>
-    <artifactId>flatlaf</artifactId>
-    <version>3.5.4</version>
     
-    </dependency>
-      <dependency>
-         <groupId>org.netbeans.external</groupId>
-         <artifactId>AbsoluteLayout</artifactId>
-         <version>RELEASE240</version>
-      </dependency>
-   </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <exec.mainClass>com.finalprojectp1.MainQR</exec.mainClass>
+        <maven.compiler.release>24</maven.compiler.release>
+    </properties>
+    
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+    
+    <dependencies>
+       
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.5.0</version>
+        </dependency> 
+    
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.5.0</version>
+        </dependency>   
+       
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv</artifactId>
+            <version>1.5.9</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.miglayout</groupId>
+            <artifactId>miglayout-swing</artifactId>
+            <version>11.4.2</version>
+        </dependency>
    
-   <build>
-    <resources>
-        <resource>
-            <directory>src/main/java</directory>
-        </resource>
-     </resources>
-</build>
-   
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.5.4</version>
+    
+        </dependency>
+        
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE250</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.java.dev.timingframework</groupId>
+            <artifactId>timingframework</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+    
+    <name>SoftwareQR</name>
+    
 </project>

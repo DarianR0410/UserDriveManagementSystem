@@ -1,0 +1,22 @@
+# Carpetas y archivos generados por NetBeans
+nbproject/
+nbactions.xml
+nbactions-private.xml
+
+# Archivos compilados y carpetas de salida
+target/
+out/
+bin/
+
+# Configuración de IDEs
+.idea/
+.vscode/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+
