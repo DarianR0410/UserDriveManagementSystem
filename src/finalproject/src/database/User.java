@@ -1,5 +1,5 @@
 
-package finalproject;
+package finalproject.src.database;
 
 //Created the user object responsible of handling the user's details.
 public class User {

@@ -1,8 +1,6 @@
 
-package finalproject;
+package finalproject.src.database;
 
-
-import com.mysql.cj.protocol.Resultset;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -142,10 +140,6 @@ public boolean LogIn(String email, String password){
        SQLException("Error al realizar el inicio de sesion.", e);
    } 
    return true;
-}
-
-public void QrStorage(){
-    
 }
 
 private Connection GetConnection() throws SQLException{

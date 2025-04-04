@@ -1,5 +1,5 @@
 
-package finalproject;
+package finalproject.src.qr;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

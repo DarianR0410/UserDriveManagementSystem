@@ -1,5 +1,5 @@
 
-package finalproject;
+package finalproject.src.model;
 
 public class SignIn {
     
