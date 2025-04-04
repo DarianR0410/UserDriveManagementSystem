@@ -20,7 +20,7 @@ public class FatherPanel extends JPanel {
         setBackground(Color.WHITE);
 
         // Manager Layout para el FatherPanel
-        setLayout(new MigLayout());
+        setLayout(new MigLayout("fill"));
 
         // Instancia del JPanel vacio 1
         JPanel panelVacio1 = new JPanel();
