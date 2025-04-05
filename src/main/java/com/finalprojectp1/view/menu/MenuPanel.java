@@ -1,6 +1,7 @@
 package com.finalprojectp1.view.menu;
 
 import com.finalprojectp1.controller.AboutUsController;
+import com.finalprojectp1.controller.LogInController;
 import com.finalprojectp1.controller.SigInController;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -52,6 +53,10 @@ public class MenuPanel extends JPanel {
         // Crea un controlador para el botón "register" y lo asigna como ActionListener
         SigInController Controller2 = new SigInController(register);
         register.addActionListener(Controller2);
+
+        // Crea un controlador para el botón "contact" y lo asigna como ActionListener
+        LogInController Controller3 = new LogInController(contact);
+        contact.addActionListener(Controller3);
     }
 
 }
