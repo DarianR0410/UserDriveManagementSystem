@@ -19,6 +19,7 @@ public class MainQR {
             UIManager.setLookAndFeel(new FlatLightLaf());
             // Redondeando al maximo todos los bordes de los componentes de texto
             UIManager.put("TextComponent.arc", 999);
+            UIManager.put("Component.arc", 999);
             // Subiendo el color del borde de enfoque a los textfields 
             UIManager.put("Component.focusWidth", 2);
         } catch (UnsupportedLookAndFeelException ex) {

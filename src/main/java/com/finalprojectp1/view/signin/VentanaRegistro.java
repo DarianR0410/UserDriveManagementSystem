@@ -6,6 +6,7 @@ import com.finalprojectp1.controller.signin.ObtenerInfoSignPasajero;
 import com.finalprojectp1.controller.signin.ManejadorEventos;
 import com.finalprojectp1.view.signin.swing.PanelConImagen;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 import net.miginfocom.swing.MigLayout;
 
@@ -22,8 +23,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    private final panelLogin p1;
-    private final ManejadorEventos manejador;
+    private panelLogin p1;
+    private ManejadorEventos manejador;
 
     public VentanaRegistro() {
         initComponents();
@@ -177,6 +178,11 @@ public class VentanaRegistro extends javax.swing.JFrame {
         jtApellido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
         jtNumero.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNumeroKeyTyped(evt);
+            }
+        });
 
         jtCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
@@ -379,6 +385,16 @@ public class VentanaRegistro extends javax.swing.JFrame {
         lblMandarLogin.setForeground(new Color(3, 96, 190));
         lblMandarLogin.setText("¿Ya tienes una cuenta? Iniciar sesión!");
     }//GEN-LAST:event_lblMandarLoginMouseExited
+
+    private void jtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNumeroKeyTyped
+        // Obtiene el carácter que el usuario ha ingresado o presionado.
+        char c = evt.getKeyChar();
+        // Verifica si el carácter ingresado NO es un dígito, tecla de retroceso o eliminar.
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE) {
+            // Ignorar el carácter no numérico
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtNumeroKeyTyped
 
     // Atributos
     // Variables declaration - do not modify//GEN-BEGIN:variables

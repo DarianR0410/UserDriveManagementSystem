@@ -4,6 +4,7 @@ package com.finalprojectp1.controller.signin;
  * @author Isaac M
  */
 import com.finalprojectp1.view.signin.panelRegistroConductor;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.regex.Pattern;
@@ -27,15 +28,22 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
         String nombre = conductor.getJtNombre().getText().trim();
         String numero = conductor.getJtNumero().getText().trim();
         String placa = conductor.getJtPlaca().getText().trim();
-        String marca = conductor.getJtMarca().getText().trim();
-        String modelo = conductor.getJtModelo().getText().trim();
-        String ano = conductor.getJtAno().getText().trim();
+        String marca = conductor.getJcMarca().getSelectedItem().toString();
+        String modelo = conductor.getJcModelo().getSelectedItem().toString();
+        String ano = conductor.getJcAno().getSelectedItem().toString();
         String color = conductor.getJtColor().getText().trim();
 
         // Validar que los campos no estén vacíos
         if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || numero.isEmpty()
-                || placa.isEmpty() || marca.isEmpty() || modelo.isEmpty() || ano.isEmpty() || color.isEmpty() || contrasena.isEmpty()) {
+                || placa.isEmpty() || color.isEmpty() || contrasena.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validar que los campos tengan seleccionado un valor valido
+        if (!validarCombobx(marca, "Marca", "Por favor seleccione la marca de su vehiculo.")
+                || !validarCombobx(modelo, "Modelo", "Por favor seleccione el modelo de su vehiculo.")
+                || !validarCombobx(ano, "Año", "Por favor seleccione el año de su vehiculo.")) {
             return;
         }
 
@@ -63,13 +71,6 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
             return;
         }
 
-        // Validar año del vehículo (debe ser un número entre 1900 y el año actual)
-        int anioActual = java.time.Year.now().getValue();
-        if (!ano.matches("\\d{4}") || Integer.parseInt(ano) < 1900 || Integer.parseInt(ano) > anioActual) {
-            JOptionPane.showMessageDialog(null, "El año del vehículo debe estar entre 1900 y " + anioActual + ".", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         // Mensaje de éxito (sin mostrar la contraseña)
         JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         limpiarTextFields();
@@ -87,6 +88,14 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
                 && contrasena.matches(".*\\d.*");
     }
 
+    private boolean validarCombobx(String valor, String valorPorDefecto, String mensaje) {
+        if (valor.equals(valorPorDefecto)) {
+            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
     private void limpiarTextFields() {
         conductor.getJtNombre().setText("");
         conductor.getJtApellido().setText("");
@@ -94,10 +103,14 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
         conductor.getJtCorreo().setText("");
         conductor.getJpContrasena().setText("");
         conductor.getJtPlaca().setText("");
-        conductor.getJtMarca().setText("");
-        conductor.getJtModelo().setText("");
-        conductor.getJtAno().setText("");
         conductor.getJtColor().setText("");
+        conductor.getJtColor().setBackground(new Color(242, 242, 242));
+        conductor.getJcMarca().insertItemAt("Marca", 0);
+        conductor.getJcMarca().setSelectedItem("Marca");
+        conductor.getJcModelo().insertItemAt("Modelo", 0);
+        conductor.getJcModelo().setSelectedItem("Modelo");
+        conductor.getJcAno().insertItemAt("Año", 0);
+        conductor.getJcAno().setSelectedItem("Año");
         conductor.getJtNombre().requestFocus();
     }
 }

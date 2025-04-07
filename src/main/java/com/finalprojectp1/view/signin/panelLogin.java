@@ -107,6 +107,7 @@ public class panelLogin extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jlCambiarContraMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jlCambiarContraMouseExited(evt);
             }
@@ -121,6 +122,7 @@ public class panelLogin extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jlMandarSignMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jlMandarSignMouseExited(evt);
             }
@@ -140,6 +142,7 @@ public class panelLogin extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnLogTxtMouseEntered(evt);
             }
+
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnLogTxtMouseExited(evt);
             }
@@ -148,51 +151,51 @@ public class panelLogin extends javax.swing.JPanel {
         javax.swing.GroupLayout btnLoginLayout = new javax.swing.GroupLayout(btnLogin);
         btnLogin.setLayout(btnLoginLayout);
         btnLoginLayout.setHorizontalGroup(
-            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnLogTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnLogTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         btnLoginLayout.setVerticalGroup(
-            btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnLogTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                btnLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnLogTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelLgLayout = new javax.swing.GroupLayout(panelLg);
         panelLg.setLayout(panelLgLayout);
         panelLgLayout.setHorizontalGroup(
-            panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLgLayout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addGroup(panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jlMandarSign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                .addGap(94, 94, 94))
-            .addGroup(panelLgLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(checkMantenerSesion)
-                    .addComponent(jtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                    .addComponent(jpContrasena)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLgLayout.createSequentialGroup()
-                        .addComponent(jlCambiarContra)
-                        .addGap(51, 51, 51)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLgLayout.createSequentialGroup()
+                                .addContainerGap(95, Short.MAX_VALUE)
+                                .addGroup(panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jlMandarSign, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                                .addGap(94, 94, 94))
+                        .addGroup(panelLgLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(checkMantenerSesion)
+                                        .addComponent(jtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                                        .addComponent(jpContrasena)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLgLayout.createSequentialGroup()
+                                                .addComponent(jlCambiarContra)
+                                                .addGap(51, 51, 51)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLgLayout.setVerticalGroup(
-            panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLgLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jpContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(checkMantenerSesion)
-                .addGap(63, 63, 63)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jlMandarSign)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlCambiarContra)
-                .addContainerGap(60, Short.MAX_VALUE))
+                panelLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelLgLayout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addComponent(jtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(jpContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(checkMantenerSesion)
+                                .addGap(63, 63, 63)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(jlMandarSign)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jlCambiarContra)
+                                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         panelDinamcLg.setBackground(new java.awt.Color(131, 46, 205));
@@ -208,40 +211,40 @@ public class panelLogin extends javax.swing.JPanel {
         javax.swing.GroupLayout panelDinamcLgLayout = new javax.swing.GroupLayout(panelDinamcLg);
         panelDinamcLg.setLayout(panelDinamcLgLayout);
         panelDinamcLgLayout.setHorizontalGroup(
-            panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDinamcLgLayout.createSequentialGroup()
-                .addGroup(panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDinamcLgLayout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(titlelg))
-                    .addGroup(panelDinamcLgLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelDinamcLgLayout.createSequentialGroup()
+                                .addGroup(panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelDinamcLgLayout.createSequentialGroup()
+                                                .addGap(120, 120, 120)
+                                                .addComponent(titlelg))
+                                        .addGroup(panelDinamcLgLayout.createSequentialGroup()
+                                                .addGap(15, 15, 15)
+                                                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(17, Short.MAX_VALUE))
         );
         panelDinamcLgLayout.setVerticalGroup(
-            panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDinamcLgLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(titlelg)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                panelDinamcLgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelDinamcLgLayout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addComponent(titlelg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(image2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelLg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelDinamcLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(panelLg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(panelDinamcLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelDinamcLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelDinamcLg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -272,7 +275,6 @@ public class panelLogin extends javax.swing.JPanel {
         jlCambiarContra.setForeground(new Color(3, 96, 190));
         jlCambiarContra.setText("¿Has olvidado tu contraseña?");
     }//GEN-LAST:event_jlCambiarContraMouseExited
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnLogTxt;
