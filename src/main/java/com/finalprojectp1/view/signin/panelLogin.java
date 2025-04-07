@@ -46,7 +46,7 @@ public class panelLogin extends javax.swing.JPanel {
         new ManejadorEventos(ventana, this);
         checkMantenerSesion.addItemListener(new EventoCheckSesion());
 
-        btnLogTxt.addMouseListener(new ObtenerInfoLogin(this));
+        btnLogTxt.addMouseListener(new ObtenerInfoLogin(this, ventana));
     }
 
     /**

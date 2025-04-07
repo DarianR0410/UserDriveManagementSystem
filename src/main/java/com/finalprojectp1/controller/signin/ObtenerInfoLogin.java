@@ -3,6 +3,7 @@ package com.finalprojectp1.controller.signin;
 /**
  * @author Isaac M
  */
+import com.finalprojectp1.view.signin.VentanaRegistro;
 import com.finalprojectp1.view.signin.panelLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -15,9 +16,11 @@ import javax.swing.Timer;
 public class ObtenerInfoLogin extends MouseAdapter {
 
     private final panelLogin panel;
+    private final VentanaRegistro ventana;
 
-    public ObtenerInfoLogin(panelLogin panel) {
+    public ObtenerInfoLogin(panelLogin panel, VentanaRegistro ventana) {
         this.panel = panel;
+        this.ventana = ventana;
     }
 
     @Override
@@ -89,8 +92,9 @@ public class ObtenerInfoLogin extends MouseAdapter {
     }
 
     public void redireccionarAlInicio() {
-        // Coloca aquí tu código para redirigir al inicio.
-        JOptionPane.showMessageDialog(null, "Todavia no pones el codigo de redireccion 😜", "Redireccionando...", JOptionPane.INFORMATION_MESSAGE);
-        // ...
+        // Cerrar la ventana de registro
+        if (ventana != null) {
+            ventana.dispose();
+        }
     }
 }
