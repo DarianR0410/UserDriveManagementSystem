@@ -1,4 +1,4 @@
-![ScannerQR Minimalista (1)](https://github.com/user-attachments/assets/3ce664c5-1b29-4d7b-a4ac-061a3cb3d0b3)
+![ScannerQR Minimalista (1)](https://github.com/user-attachments/assets/20fa330b-c145-48de-a7db-d54ecebd815a)
 
 # Sistema de Verificación de Transporte (SVT)
 
