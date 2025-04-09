@@ -1,5 +1,4 @@
-[![Scanner QR](https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-fde4-51f7-baf9-c1e5594b81a9/raw?se=2025-04-09T04%3A05%3A02Z&sp=r&sv=2024-08-04&sr=b&scid=b290cf52-6bf4-52a9-badc-384bcaa861c1&skoid=365eb242-95ba-4335-a618-2c9f8f766a86&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-08T22%3A34%3A46Z&ske=2025-04-09T22%3A34%3A46Z&sks=b&skv=2024-08-04&sig=aPpxlX5z4sWRAnq2Kpe20dO7dNJpVGUo/lkaaUY1zdE%3D "Scanner QR")](https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-fde4-51f7-baf9-c1e5594b81a9/raw?se=2025-04-09T04%3A05%3A02Z&sp=r&sv=2024-08-04&sr=b&scid=b290cf52-6bf4-52a9-badc-384bcaa861c1&skoid=365eb242-95ba-4335-a618-2c9f8f766a86&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-08T22%3A34%3A46Z&ske=2025-04-09T22%3A34%3A46Z&sks=b&skv=2024-08-04&sig=aPpxlX5z4sWRAnq2Kpe20dO7dNJpVGUo/lkaaUY1zdE%3D "Scanner QR")
-
+![ScannerQR Minimalista](https://github.com/user-attachments/assets/62bf00a8-c3a6-4679-8937-67cc066c3287)
 
 # Sistema de Verificación de Transporte (SVT)
 
@@ -44,7 +43,7 @@ spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=svt_db
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
 
-7. Ejecuta la aplicación. 
+4. Ejecuta la aplicación. 
 
 **Ejecutar desde la clase principal**
 java -jar svt-app.jar
