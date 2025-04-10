@@ -50,8 +50,75 @@ java -jar svt-app.jar
 
 ### Uso del sistema 💻
 
-1. Regístrate con tus datos personales (nombre completo, correo, número de teléfono y contraseña).
+1. El sistema cuenta con dos tipos de usuarios principales: **Pasajeros y Conductores**, cada uno con su propio flujo de registro y el mimso inicio de sesión.
+
+Para cambiar de registro entre Pasajero y Conductor se utiliza el siguiente boton el cual funciona como un switch.
+
+![image](https://github.com/user-attachments/assets/dcdad72a-b633-431f-8879-a2358eda8a6a)
+
+
+**Registro del Pasajero 🙋‍♂️**
+
+La pantalla de registro de pasajero tiene un diseño con fondo morado osucuro y muestra un formulario con los siguientes campos:(Nombre, Apellido, Correo, Número de teléfono y Contraseña).
+
+![image](https://github.com/user-attachments/assets/2efc14fe-a43b-45ce-af76-02407afe19a8)
+
+También incluye un enlace "¿Ya tienes una cuenta? Iniciar sesión" en la parte inferior y un botón "Registrar" para completar el proceso.
+
+**Registro del Conductor 🚘🚖**
+
+La pantalla de registro de conductor tiene un diseño con fondo morado claro y muestra un formulario con los siguientes campos:(Nombre, Apellido, Correo, Número de teléfono, Contraseña) y tambien información del vehículo con los siguientes campos: (Placa, Marca, Modelo, Año Color).
+
+ ![image](https://github.com/user-attachments/assets/3d33e0fd-4047-4aba-82d4-f79ae8dce765)
+
+Incluye el mismo enlace para iniciar sesión y un botón "Registrar" de color morado claro.
+
 2. Inicia sesión en el sistema.
+
+![image](https://github.com/user-attachments/assets/1ddcb50e-d71c-484f-859e-087cf6db7c2b)
+
 3. Utiliza la función de escaneo para leer los códigos QR de los vehículos.
 4. Visualiza la información del conductor y vehículo (matrícula, nombre, modelo, etc.)
 5. Consulta tu historial de escaneos.
+
+### Ejecutando las pruebas ⚙️
+
+Para ejecutar las pruebas automatizadas del sistema:
+
+**Si usas Maven**
+mvn test
+
+### Pruebas de integración 🔩
+
+Estas pruebas verifican que los componentes del sistema funcionen correctamente entre sí:
+
+**Ejecutar solo pruebas de integración**
+mvn integration-test
+
+**Pruebas de escaneo de QR ⌨️**
+Verifican que el sistema pueda escanear y procesar correctamente los códigos QR:
+
+**Ejemplo de prueba de escaneo**
+mvn test -Dtest=QRScannerTest
+
+### Despliegue 📦
+
+Para desplegar el sistema en un entorno de producción:
+
+1.	Configura un servidor con los requisitos necesarios.
+2.	Establece la conexión a la base de datos de producción.
+3.	Genera el archivo JAR ejecutable.
+4.	Configura el sistema como un servicio para que se inicie automáticamente.
+
+### Construido con 🛠️
+- Java - Lenguaje de programación principal.
+- Java Swing - Biblioteca gráfica para la interfaz.
+- SQL Server - Sistema de gestión de bases de datos.
+
+### Autores ✒️
+-	[Darian Elizabeth Ramos Estepan] - Desarrollo Backend.
+-	[Joslam Jerez Perez] - Desarrollo Frontend.
+-	[Angel Isaac Mejia Martinez] - Desarrollo Frontend.
+-	[Ashley Michel Cabrera Mena] - Scrum Master.
+-	[Daniel Nicolas Volquez Jimenez] - Base de datos.
+-	[Cristopher Jose Antonio Duran Taveras] - Análisis y Diseño.
