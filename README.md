@@ -1,4 +1,5 @@
-![ScannerQR Minimalista (1)](https://github.com/user-attachments/assets/20fa330b-c145-48de-a7db-d54ecebd815a)
+![ScannerQR Minimalista](https://github.com/user-attachments/assets/d1a7a19f-aeca-48e9-808b-ded84f66d77b)
+
 
 # Sistema de Verificación de Transporte (SVT)
 
@@ -93,12 +94,16 @@ mvn test
 Estas pruebas verifican que los componentes del sistema funcionen correctamente entre sí:
 
 **Ejecutar solo pruebas de integración**
+
 mvn integration-test
 
 **Pruebas de escaneo de QR ⌨️**
+
+
 Verifican que el sistema pueda escanear y procesar correctamente los códigos QR:
 
 **Ejemplo de prueba de escaneo**
+
 mvn test -Dtest=QRScannerTest
 
 ### Despliegue 📦
@@ -116,9 +121,9 @@ Para desplegar el sistema en un entorno de producción:
 - SQL Server - Sistema de gestión de bases de datos.
 
 ### Autores ✒️
--	[Darian Elizabeth Ramos Estepan] - Desarrollo Backend.
--	[Joslam Jerez Perez] - Desarrollo Frontend.
--	[Angel Isaac Mejia Martinez] - Desarrollo Frontend.
--	[Ashley Michel Cabrera Mena] - Scrum Master.
--	[Daniel Nicolas Volquez Jimenez] - Base de datos.
--	[Cristopher Jose Antonio Duran Taveras] - Análisis y Diseño.
+- **Darian Elizabeth Ramos Estepan** - *Desarrollo Backend* - [DarianR0410](https://github.com/DarianR0410)
+- **Joslam Jerez Perez** - *Desarrollo Frontend* - [Pendiente](https://github.com)
+- **Angel Isaac Mejia Martinez** - *Desarrollo Frontend* - [IsaacEffect](https://github.com/IsaacEffect)
+- **Ashley Michel Cabrera Mena** - *Scrum Master* - [Pendiente](https://github.com)
+- **Daniel Nicolas Volquez Jimenez** - *Base de datos* - [Danielito-code](https://github.com/Danielito-code)
+- **Cristopher Jose Antonio Duran Taveras** - *Análisis y Diseño* - [X-Cris-X](https://github.com/X-Cris-X)
