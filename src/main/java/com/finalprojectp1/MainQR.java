@@ -3,6 +3,7 @@ package com.finalprojectp1;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.SwingUtilities;
 import com.finalprojectp1.view.FramePrincipal;
+import java.awt.Insets;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -22,6 +23,10 @@ public class MainQR {
             UIManager.put("Component.arc", 999);
             // Subiendo el color del borde de enfoque a los textfields 
             UIManager.put("Component.focusWidth", 2);
+            // Personalizando la barra de subir y bajar en la lista de scan
+            UIManager.put("ScrollBar.thumbArc", 999);
+            UIManager.put("ScrollBar.width", 12);
+            UIManager.put("ScrollBar.thumbInsets", new Insets(2, 2, 2, 2));
         } catch (UnsupportedLookAndFeelException ex) {
             // Si ocurre un error al aplicar el tema, muestra un mensaje en la consola
             System.err.println("Error al inicializar FlatLaf");
