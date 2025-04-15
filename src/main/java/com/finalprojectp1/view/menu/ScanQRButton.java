@@ -1,6 +1,7 @@
 package com.finalprojectp1.view.menu;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,17 +15,17 @@ public class ScanQRButton extends JButton {
     // Constructor de la clase ScanQRButton
     public ScanQRButton() {
 
-        // Elimina el borde del botón
+        // Dimensiones para el boton
+        setPreferredSize(new Dimension(70, 70));
+        
+        // Anulando el borde del boton
         setBorder(null);
-
-        // Hace que el botón sea opaco (no transparente)
+        
+        // Opacando el boton para que no se vea su fondo por defecto
         setOpaque(true);
-
-        // Establece el color del texto del botón en un tono gris (RGB: 96, 96, 96)
-        setForeground(new Color(96, 96, 96));
-
-        // Evita que el botón rellene su área de contenido (permite personalizar su apariencia)
-        setContentAreaFilled(false);
+        
+        // Quitando el foco de cuando lo clickeen
+        setFocusPainted(false);
 
         // Crea un JLabel para mostrar un icono de código QR
         JLabel scanLogo;
