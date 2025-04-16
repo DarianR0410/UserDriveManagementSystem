@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lmR57DsgVXE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Darian Ramos\\source\\repos\\ArrayHomework\\ArrayHomework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Darian Ramos\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}

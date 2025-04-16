@@ -1,0 +1,15 @@
+C:\Users\Darian Ramos\source\repos\ArrayHomework\bin\Debug\net8.0\ArrayHomework.exe
+C:\Users\Darian Ramos\source\repos\ArrayHomework\bin\Debug\net8.0\ArrayHomework.deps.json
+C:\Users\Darian Ramos\source\repos\ArrayHomework\bin\Debug\net8.0\ArrayHomework.runtimeconfig.json
+C:\Users\Darian Ramos\source\repos\ArrayHomework\bin\Debug\net8.0\ArrayHomework.dll
+C:\Users\Darian Ramos\source\repos\ArrayHomework\bin\Debug\net8.0\ArrayHomework.pdb
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.AssemblyInfoInputs.cache
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.AssemblyInfo.cs
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.csproj.CoreCompileInputs.cache
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.sourcelink.json
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.dll
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\refint\ArrayHomework.dll
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.pdb
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ArrayHomework.genruntimeconfig.cache
+C:\Users\Darian Ramos\source\repos\ArrayHomework\obj\Debug\net8.0\ref\ArrayHomework.dll
