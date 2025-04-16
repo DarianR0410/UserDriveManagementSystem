@@ -1,5 +1,6 @@
 package com.finalprojectp1.controller;
 
+import com.finalprojectp1.view.profile.VentanaDriverProfile;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamException;
 import com.google.zxing.BinaryBitmap;
@@ -15,6 +16,7 @@ import com.finalprojectp1.view.view3.WindowCamera;
 import com.github.sarxos.webcam.WebcamPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +25,9 @@ import java.awt.Dimension;
 public class ScanQRController implements ActionListener {
 
     private WindowCamera windowCamera = new WindowCamera();
-    
-    public ScanQRController() {}
+
+    public ScanQRController() {
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -33,16 +36,22 @@ public class ScanQRController implements ActionListener {
         
             Webcam camera = initCamera(windowCamera);
             try {
-                Thread.sleep(5000);
+                Thread.sleep(8000);
                 BufferedImage image = getImage(camera);
-                if (image == null) return;
+                if (image == null) {
+                    return;
+                }
 
                 RGBLuminanceSource source = bufferedImageToLuminanceSource(image);
-                if (source == null) return;
+                if (source == null) {
+                    return;
+                }
 
                 String data = decodeQR(source);
                 if (data != null) {
-                    System.out.println("QR decodificado: " + data);
+                    System.out.println("\nQR decodificado:\n" + data);
+                    JOptionPane.showMessageDialog(null, "QR detectado\n", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    redireccionarPerfil();
                 }
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
@@ -116,5 +125,12 @@ public class ScanQRController implements ActionListener {
         }
         return null;
     }
-}
 
+    private void redireccionarPerfil() {
+        VentanaDriverProfile p1 = new VentanaDriverProfile();
+        p1.setVisible(true);
+        if (windowCamera != null) {
+            windowCamera.dispose();
+        }
+    }
+}
