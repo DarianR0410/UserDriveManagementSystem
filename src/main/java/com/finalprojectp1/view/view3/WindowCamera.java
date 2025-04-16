@@ -4,11 +4,7 @@
  */
 package com.finalprojectp1.view.view3;
 
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamPanel;
-import java.awt.Dimension;
 import javax.swing.JFrame;
-import com.finalprojectp1.controller.ScanQRController;
 import java.awt.BorderLayout;
 
 /**

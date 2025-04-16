@@ -28,7 +28,9 @@ public class ScanQRController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        new Thread(() -> {
+        
+            new Thread(() -> {
+        
             Webcam camera = initCamera(windowCamera);
             try {
                 Thread.sleep(5000);
@@ -44,8 +46,10 @@ public class ScanQRController implements ActionListener {
                 }
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
+                
             }
         }).start();
+       
     }
 
     private Webcam initCamera(WindowCamera windowCamera) {
