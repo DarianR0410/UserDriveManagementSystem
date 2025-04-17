@@ -49,6 +49,7 @@ public class ScanQRController implements ActionListener {
 
                 String data = decodeQR(source);
                 if (data != null) {
+                    windowCamera.dispose();
                     System.out.println("\nQR decodificado:\n" + data);
                     JOptionPane.showMessageDialog(null, "QR detectado\n", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     redireccionarPerfil();
