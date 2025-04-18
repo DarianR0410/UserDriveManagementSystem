@@ -1,65 +1,113 @@
+package org.safepassenger.model;
 
-package finalproject.src.database;
+/*
+ * Driver class represents a driver with attributes such as id, name, last name, age, email, license, phone number, and password.
+ * It implements the PasswordHolder, PhoneNumberHolder, BasicData, and Account interfaces.
+ * The class provides methods to set and get the driver's information.
+ */
 
-public class Driver {
-    
+public class Driver implements PasswordHolder, PhoneNumberHolder, BasicData, Account {
+
+    private int idDriver;
     private String name;
     private String lastName;
     private int age;
     private String email;
     private String license;
     private String phoneNumber;
-    
-    Driver(String name, String lastName, int age, String phoneNumber, String license){
+    private String password;
+
+    public Driver() {
+
+    }
+
+    public Driver (int idDriver , String name , String lastName , int age, String email, String license , String phoneNumber, String password){
+        this.idDriver = idDriver;
         this.name = name;
         this.lastName = lastName;
-        this.age = age;
+        this.age  = age;
         this.email = email;
-        this.license = license;
+        this.license =  license;
         this.phoneNumber = phoneNumber;
+        this.password = password;
     }
-    
-    public String driverInformation(){
-        return "Nombre: " + name + "Apellido: " + lastName + "Edad: " + age + "Numero de telefono: " + phoneNumber + "Licencia: " + license;
+
+
+    public String getPassword(){
+        return  password;
     }
-    
-    public String getName(){
-        return this.name;
+
+    public String setPassword(String password){
+        return this.password = password;
     }
-    
-    public void setName(){
-        this.name = name;
+
+    public int getId_conductor() {
+        return idDriver;
     }
-    
-    public String getLastName(){
-        return this.lastName;
+
+    public void setId_conductor(int idDriver) {
+        this.idDriver = idDriver;
     }
-    
-    public void setLastname(){
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    public int getAge(){
-        return this.age;
+
+    public String getName() {
+        return name;
     }
-    
-    public void setAge(){
-        this.age = age;
+
+    public String setName(String name) {
+        return this.name = name;
     }
-    
-    public String getLicense(){
-        return this.license;
+
+    public String getEmail() {
+        return email;
     }
-    
-    public void setLicense(){
+
+    public String setEmail(String email) {
+        return this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String setPhoneNumber(String phoneNumber) {
+        return this.phoneNumber = phoneNumber;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
         this.license = license;
     }
-    
-    public String getPhoneNumber(){
-        return this.phoneNumber;
+
+    public void setAge(int age) {
+        this.age = age;
+
     }
-    
-    public void setPhoneNumber(){
+
+    @Override
+    public void SetNewPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public void BasicInformation(String name, String lastName, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    @Override
+    public void SetNewPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }
