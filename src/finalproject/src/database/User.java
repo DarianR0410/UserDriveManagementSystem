@@ -1,20 +1,26 @@
+package org.safepassenger.model;
 
-package finalproject.src.database;
+/**
+ * User class represents a user in the system with basic information such as name, last name, email, password, and phone number.
+ * It implements BasicData, PasswordHolder, PhoneNumberHolder, and Account interfaces.
+ */
 
-//Created the user object responsible of handling the user's details.
-public class User {
-    
-    //Firstly, I declared the required variables of the general users both driver and passanger.
+public class User implements BasicData, PasswordHolder, PhoneNumberHolder, Account {
+
+    private int idPassenger;
     private String name;
     private String lastName;
     private String phoneNumber;
     private String email;
     private String password;
-    
-    //Pass the values to the constructor.
 
-    public User(String name, String lastName, String email, String password, String phoneNumber) {
-        
+    public User() {
+
+    }
+
+    public User(int idPassenger, String name, String lastName, String email, String password, String phoneNumber) {
+
+        this.idPassenger = idPassenger;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -22,43 +28,70 @@ public class User {
         this.password = password;
     }
 
-    public String getName(){
+    public int getIdPassenger(){
+        return this.idPassenger;
+    }
+
+    public void setIdPassenger(int idPassenger){
+        this.idPassenger = idPassenger;
+    }
+
+    public String getName() {
         return this.name;
-    }    
-    
-    public void setName(){
+    }
+
+    public void setName(String name) {
         this.name = name;
     }
-    
-    public String getLastName(){
+
+    public String getLastName() {
         return this.lastName;
     }
-    
-    public void setLastName(){
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    public String getPhoneNumber(){
+
+    public String getPhoneNumber() {
         return this.phoneNumber;
     }
-    
-    public void setPhoneNumber(){
-        this.phoneNumber = phoneNumber;
+
+    public String setPhoneNumber(String phoneNumber) {
+        return this.phoneNumber = phoneNumber;
     }
-     
-    public String getEmail(){
+
+    public String getEmail() {
         return this.email;
     }
-    
-    public void setEmail(){
-        this.email  = email;
+
+    public String setEmail(String email) {
+        return this.email = email;
     }
-    
-    public String getPassword(){
+
+    public String getPassword() {
         return this.password;
     }
-    
-    public void setPassword(){
+
+    public String setPassword(String password) {
+         return this.password = password;
+    }
+
+    @Override
+    public void BasicInformation(String name, String lastName, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
+    @Override
+    public void SetNewPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public void SetNewPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
 }
