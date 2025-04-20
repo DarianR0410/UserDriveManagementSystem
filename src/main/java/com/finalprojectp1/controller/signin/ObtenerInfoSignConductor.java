@@ -10,19 +10,26 @@ import java.awt.event.MouseEvent;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
+// Clase que maneja el evento cuando se hace clic para registrar un conductor
 public class ObtenerInfoSignConductor extends MouseAdapter {
 
+    // Se declara una variable final para el panel de registro de conductor
     private final panelRegistroConductor conductor;
 
+    // Constructor que recibe el panel para poder acceder a sus componentes
     public ObtenerInfoSignConductor(panelRegistroConductor conductor) {
         this.conductor = conductor;
     }
 
+    // Método que se ejecuta cuando se hace clic
     @Override
     public void mouseClicked(MouseEvent e) {
-        // Obtener valores de los campos
+
+        // Obtener la contraseña ingresada y convertirla a String
         char[] passArray = conductor.getJpContrasena().getPassword();
         String contrasena = new String(passArray).trim();
+
+        // Obtener el resto de los datos del formulario y eliminar espacios sobrantes
         String apellido = conductor.getJtApellido().getText().trim();
         String correo = conductor.getJtCorreo().getText().trim();
         String nombre = conductor.getJtNombre().getText().trim();
@@ -33,21 +40,21 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
         String ano = conductor.getJcAno().getSelectedItem().toString();
         String color = conductor.getJtColor().getText().trim();
 
-        // Validar que los campos no estén vacíos
+        // Verifica que ningún campo esté vacío
         if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || numero.isEmpty()
                 || placa.isEmpty() || color.isEmpty() || contrasena.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Validar que los campos tengan seleccionado un valor valido
+        // Verifica que los jcomboBox tengan una opción válida seleccionada
         if (!validarCombobx(marca, "Marca", "Por favor seleccione la marca de su vehiculo.")
                 || !validarCombobx(modelo, "Modelo", "Por favor seleccione el modelo de su vehiculo.")
                 || !validarCombobx(ano, "Año", "Por favor seleccione el año de su vehiculo.")) {
             return;
         }
 
-        // Validar formato de correo
+        // Valida el formato del correo usando regex
         if (!validarCorreo(correo)) {
             JOptionPane.showMessageDialog(null, "Correo electrónico no válido.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -71,16 +78,20 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
             return;
         }
 
-        // Mensaje de éxito (sin mostrar la contraseña)
+        // Si todo está correcto, muestra mensaje de éxito
         JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        // Limpia todos los campos del formulario
         limpiarTextFields();
     }
 
+    // Valida que el correo tenga un formato válido (usando regex)
     private boolean validarCorreo(String correo) {
         String regex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
         return Pattern.matches(regex, correo);
     }
 
+    // Valida que la contraseña tenga:
+    // al menos 8 caracteres, una mayúscula, una minúscula y un número
     private boolean validarContrasena(String contrasena) {
         return contrasena.length() >= 8
                 && contrasena.matches(".*[A-Z].*")
@@ -88,6 +99,7 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
                 && contrasena.matches(".*\\d.*");
     }
 
+    // Método para validar que un jcomboBox tenga un valor distinto al predeterminado
     private boolean validarCombobx(String valor, String valorPorDefecto, String mensaje) {
         if (valor.equals(valorPorDefecto)) {
             JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
@@ -96,6 +108,7 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
         return true;
     }
 
+    // Limpia los campos de texto del formulario
     private void limpiarTextFields() {
         conductor.getJtNombre().setText("");
         conductor.getJtApellido().setText("");
@@ -104,7 +117,8 @@ public class ObtenerInfoSignConductor extends MouseAdapter {
         conductor.getJpContrasena().setText("");
         conductor.getJtPlaca().setText("");
         conductor.getJtColor().setText("");
-        conductor.getJtColor().setBackground(new Color(242, 242, 242));
+        conductor.getJtColor().setBackground(new Color(242, 242, 242)); // Restaura color de fondo
+        // Reinicia los comboBox a su valor por defecto
         conductor.getJcMarca().insertItemAt("Marca", 0);
         conductor.getJcMarca().setSelectedItem("Marca");
         conductor.getJcModelo().insertItemAt("Modelo", 0);

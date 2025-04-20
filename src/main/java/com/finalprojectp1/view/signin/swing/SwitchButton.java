@@ -23,17 +23,20 @@ import org.jdesktop.animation.timing.interpolation.Interpolator;
  *
  * @author RAVEN
  */
+//Toggle personalizado con animación y eventos.
 public class SwitchButton extends javax.swing.JPanel {
 
+    // Métodos getter y setter para el color del switch cuando está apagado
     public Color getSwitchOffColor() {
         return switchOffColor;
     }
 
     public void setSwitchOffColor(Color switchOffColor) {
         this.switchOffColor = switchOffColor;
-        repaint();
+        repaint(); // Redibuja el componente
     }
 
+    // Métodos getter y setter para el color del switch cuando está encendido
     public Color getSwitchColor() {
         return switchColor;
     }
@@ -43,6 +46,7 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Métodos para el color cuando el componente está deshabilitado
     public Color getDisableColor() {
         return disableColor;
     }
@@ -52,6 +56,7 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Obtiene y establece el tamaño del borde del botón
     public int getBorderSize() {
         return borderSize;
     }
@@ -61,6 +66,7 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Espacio entre el borde y el switch
     public int getSpace() {
         return space;
     }
@@ -70,6 +76,7 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Nivel de redondeado del borde y switch
     public int getRound() {
         return round;
     }
@@ -79,13 +86,14 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Estado actual del interruptor (encendido o apagado)
     public boolean isOn() {
         return on;
     }
 
     public void setOn(boolean on) {
         this.on = on;
-        runEvent();
+        runEvent(); // Ejecuta eventos asociados al cambio
         if (on) {
             animate = 0;
         } else {
@@ -94,18 +102,21 @@ public class SwitchButton extends javax.swing.JPanel {
         repaint();
     }
 
+    // Cambia el estado con opción de animación
     public void setOn(boolean on, boolean animate) {
         if (animate) {
-            start(on);
+            start(on); // Inicia animación
         } else {
-            setOn(on);
+            setOn(on); // Cambia directamente
         }
     }
 
+    // Agrega un listener para detectar cuando cambia el estado del switch
     public void addEventSwitchSelected(SwitchListener event) {
         events.add(event);
     }
 
+    // Variables internas de configuración y estado
     private Color switchColor = new Color(22, 160, 255);
     private Color switchOffColor = new Color(190, 190, 190);
     private Color disableColor = new Color(190, 190, 190);
@@ -118,19 +129,22 @@ public class SwitchButton extends javax.swing.JPanel {
     private boolean mouseHover;
     private final List<SwitchListener> events = new ArrayList<>();
 
+    // Constructor del botón
     public SwitchButton() {
-        initComponents();
-        init();
+        initComponents(); // Inicializa los componentes de la interfaz
+        init(); // Inicializa propiedades y eventos
     }
 
+    // Configuración inicial del componente
     private void init() {
         setOpaque(false);
         setBackground(new Color(255, 255, 255));
         setForeground(new Color(220, 220, 220));
-        initAnimator();
-        initMouseEvent();
+        initAnimator(); // Configura animación
+        initMouseEvent(); // Agrega eventos de mouse
     }
 
+    // Configura los eventos del mouse
     private void initMouseEvent() {
         MouseAdapter mouseAdapter = new MouseAdapter() {
             @Override
@@ -147,16 +161,17 @@ public class SwitchButton extends javax.swing.JPanel {
             public void mouseReleased(MouseEvent e) {
                 if (isEnabled() && SwingUtilities.isLeftMouseButton(e)) {
                     if (mouseHover) {
-                        setOn(!on, true);
-                        runEvent();
+                        setOn(!on, true); // Cambia el estado al hacer clic
+                        runEvent(); // Ejecuta listeners
                     }
                 }
             }
 
         };
-        addMouseListener(mouseAdapter);
+        addMouseListener(mouseAdapter); // Agrega el adaptador de mouse
     }
 
+    // Configura la animación del switch
     private void initAnimator() {
         animator = new Animator(1000, new TimingTargetAdapter() {
             @Override
@@ -173,11 +188,12 @@ public class SwitchButton extends javax.swing.JPanel {
         animator.setInterpolator(new Interpolator() {
             @Override
             public float interpolate(float f) {
-                return easeOutBounce(f);
+                return easeOutBounce(f); // Aplica efecto de rebote
             }
         });
     }
 
+    // Función para crear el efecto de rebote en la animación
     private float easeOutBounce(float x) {
         double n1 = 7.5625;
         double d1 = 2.75;
@@ -194,12 +210,14 @@ public class SwitchButton extends javax.swing.JPanel {
         return (float) v;
     }
 
+    // Ejecuta los eventos registrados cuando cambia el estado del switch
     private void runEvent() {
         for (SwitchListener event : events) {
             event.selectChange(on);
         }
     }
 
+    // Inicia la animación para cambiar el estado
     private void start(boolean isOn) {
         if (animator.isRunning()) {
             float f = animator.getTimingFraction();
@@ -215,10 +233,11 @@ public class SwitchButton extends javax.swing.JPanel {
             animator.setStartFraction(0f);
         }
         on = isOn;
-        animator.start();
+        animator.start(); // Comienza animación
 
     }
 
+    // Método para pintar el componente (bordes y switch)
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -233,6 +252,7 @@ public class SwitchButton extends javax.swing.JPanel {
         g2.dispose();
     }
 
+    // Dibuja el borde del botón
     private void createBorder(Graphics2D g2, int width, int height) {
         int r = round == 999 ? height : round;
         Area area = new Area(new RoundRectangle2D.Double(0, 0, width, height, r, r));
@@ -240,6 +260,7 @@ public class SwitchButton extends javax.swing.JPanel {
         area.subtract(new Area(new RoundRectangle2D.Double(borderSize, borderSize, width - borderSize * 2, height - borderSize * 2, r, r)));
         g2.setColor(isEnabled() ? EvaluatorColor.evaluate(switchColor, switchOffColor, animate) : disableColor);
         g2.fill(area);
+        // Efecto visual tipo pastel para indicar posición
         double size = Math.max(width, height);
         size += size * 0.5f;
         double x = (width - size) / 2;
@@ -248,6 +269,7 @@ public class SwitchButton extends javax.swing.JPanel {
         g2.fill(area);
     }
 
+    // Dibuja el switch que se mueve
     private void createSwitch(Graphics2D g2, int width, int height) {
         int size = width / 2;
         int spaceSize = borderSize + space;
@@ -291,6 +313,7 @@ public class SwitchButton extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // Sobrescribe el color de los labels al cambiar el color del componente
     @Override
     public void setForeground(Color fg) {
         super.setForeground(fg);
@@ -300,6 +323,7 @@ public class SwitchButton extends javax.swing.JPanel {
         }
     }
 
+    // Sobrescribe la fuente de los labels
     @Override
     public void setFont(Font font) {
         super.setFont(font);

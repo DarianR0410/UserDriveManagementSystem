@@ -22,7 +22,6 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-
 public class ScanQRController implements ActionListener {
 
     // Ventana que muestra la vista previa de la cámara

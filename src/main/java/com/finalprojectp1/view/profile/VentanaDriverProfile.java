@@ -23,8 +23,8 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
     }
 
     private void configurarLayout() {
-        contenedor.setLayout(new MigLayout("fill"));
-        contenedor.add(cuerpo, "align 50% 50%");
+        contenedor.setLayout(new MigLayout("fill")); // llena todo el espacio
+        contenedor.add(cuerpo, "align 50% 50%"); // Centrado
     }
 
     private void editCamp() {
@@ -63,6 +63,8 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
         txtColor = new javax.swing.JTextField();
         menu = new javax.swing.JMenuBar();
         tresRayaMenu = new javax.swing.JMenu();
+        userSession = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         irHistory = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         cerrarSesion = new javax.swing.JMenuItem();
@@ -219,6 +221,12 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
         tresRayaMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tresRayaMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        userSession.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        userSession.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/circle.png"))); // NOI18N
+        userSession.setText("Usuario");
+        tresRayaMenu.add(userSession);
+        tresRayaMenu.add(jSeparator3);
+
         irHistory.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         irHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reloj.png"))); // NOI18N
         irHistory.setText("Historial");
@@ -266,6 +274,7 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
     private javax.swing.JMenuItem irHistory;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenuBar menu;
     private javax.swing.JLabel modelo;
     private javax.swing.JLabel name;
@@ -279,6 +288,7 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtNumber;
     private javax.swing.JLabel txtPlaca;
+    private javax.swing.JMenuItem userSession;
     // End of variables declaration//GEN-END:variables
 
     public void setTxtCar(javax.swing.JLabel txtCar) {
@@ -299,5 +309,9 @@ public class VentanaDriverProfile extends javax.swing.JFrame {
 
     public void setTxtPlaca(javax.swing.JLabel txtPlaca) {
         this.txtPlaca = txtPlaca;
+    }
+
+    public void setUserSession(javax.swing.JMenuItem userSession) {
+        this.userSession = userSession;
     }
 }

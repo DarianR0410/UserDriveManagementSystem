@@ -11,29 +11,32 @@ import javax.swing.JOptionPane;
 
 public class ObtenerInfoSignPasajero extends MouseAdapter {
 
+    // Atributo privado que guarda la ventana principal
     private final VentanaRegistro ventana;
 
+    // Constructor que recibe la ventana como parámetr
     public ObtenerInfoSignPasajero(VentanaRegistro ventana) {
-        this.ventana = ventana;
+        this.ventana = ventana; // Asigna la ventana al atributo de la clase
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // Obtener valores de los campos
+        // Obtener la contraseña ingresada y convertirla a String
         char[] passArray = ventana.getJpContrasena().getPassword();
         String contrasena = new String(passArray).trim();
+        // Obtener el resto de los datos del formulario y eliminar espacios sobrantes
         String apellido = ventana.getJtApellido().getText().trim();
         String correo = ventana.getJtCorreo().getText().trim();
         String nombre = ventana.getJtNombre().getText().trim();
         String numero = ventana.getJtNumero().getText().trim();
 
-        // Validar que los campos no estén vacíos
+        // Verifica que ningún campo esté vacío
         if (nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || numero.isEmpty() || contrasena.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Por favor, completa todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Validar formato de correo
+        // Valida el formato del correo usando regex
         if (!validarCorreo(correo)) {
             JOptionPane.showMessageDialog(null, "Correo electrónico no válido.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -51,16 +54,20 @@ public class ObtenerInfoSignPasajero extends MouseAdapter {
             return;
         }
 
-        // Mensaje de éxito (sin mostrar la contraseña)
+        // Si todo está correcto, muestra mensaje de éxito
         JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        // Limpia todos los campos del formulario
         limpiarTextFields();
     }
 
+    // Valida que el correo tenga un formato válido (usando regex)
     private boolean validarCorreo(String correo) {
         String regex = "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
         return Pattern.matches(regex, correo);
     }
 
+    // Valida que la contraseña tenga:
+    // al menos 8 caracteres, una mayúscula, una minúscula y un número
     private boolean validarContrasena(String contrasena) {
         return contrasena.length() >= 8
                 && contrasena.matches(".*[A-Z].*")
@@ -68,6 +75,7 @@ public class ObtenerInfoSignPasajero extends MouseAdapter {
                 && contrasena.matches(".*\\d.*");
     }
 
+    // Limpia los campos de texto del formulario
     private void limpiarTextFields() {
         ventana.getJtNombre().setText("");
         ventana.getJtApellido().setText("");

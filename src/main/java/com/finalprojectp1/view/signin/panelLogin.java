@@ -43,9 +43,13 @@ public class panelLogin extends javax.swing.JPanel {
         panelLg.add(btnLogin, "align center, wrap");
         panelLg.add(jlMandarSign, "align center, wrap");
 
+        // Se crea una instancia del manejador de eventos para esta ventana.
         new ManejadorEventos(ventana, this);
+        // Se agrega un listener (oyente de eventos) al checkbox "Mantener sesión".
+        // Esto significa que cuando el usuario marque o desmarque el checkbox, se ejecutará 'EventoCheckSesion'.
         checkMantenerSesion.addItemListener(new EventoCheckSesion());
-
+        // Se agrega un mouse listener al botón de login ('btnLogTxt').
+        // Cuando el usuario haga clic en ese botón, se ejecutará 'ObtenerInfoLogin'.
         btnLogTxt.addMouseListener(new ObtenerInfoLogin(this, ventana));
     }
 

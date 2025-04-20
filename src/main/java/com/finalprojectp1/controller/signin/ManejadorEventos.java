@@ -13,69 +13,86 @@ import javax.swing.JOptionPane;
  */
 public class ManejadorEventos {
 
+    // Se declara una variable final para la ventana principal del registro
     private final VentanaRegistro ventana;
+    // Se declara una variable final para el panel de login
     private final panelLogin panel;
 
+    // Constructor que recibe la ventana y el panel como parámetros
     public ManejadorEventos(VentanaRegistro ventana, panelLogin panel) {
-        this.ventana = ventana;
-        this.panel = panel;
-        initEventHandlers();
+        this.ventana = ventana; // Se asigna la ventana pasada al atributo
+        this.panel = panel;     // Se asigna el panel pasado al atributo
+        initEventHandlers();    // Se llama al método para iniciar los eventos
     }
 
+    // Método que inicializa todos los manejadores de eventos
     private void initEventHandlers() {
-        eventoContra();
-        eventoMandarPasajeroLogin();
-        eventoMandarUsuarioRegistro();
+        eventoContra();                 // Evento para el cambio de contraseña
+        eventoMandarPasajeroLogin();    // Evento para ir al login desde el registro
+        eventoMandarUsuarioRegistro();  // Evento para ir al registro desde el login
     }
 
+    // Método que define el evento para cambiar al panel de login
     private void eventoMandarPasajeroLogin() {
-        if (ventana.getLblMandarLogin() != null) { // Asegurarse de que el label no es null
+        // Verifica que el label no sea null
+        if (ventana.getLblMandarLogin() != null) {
+            // Añade un listener para detectar clics en el label
             ventana.getLblMandarLogin().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent evt) {
-                    /* Evento MouseClicked para cuando se le de click a ese texto del
-                    registro de pasajeros, cambie hacia el panel del login */
+                    // Cuando se hace clic, se crea un nuevo panel de login
                     panelLogin p2 = new panelLogin(ventana, ventana.getTglbRoll());
+                    // Se cambia el panel actual al panel de login
                     ventana.cambiarPanel(p2);
+                    // Se cambia el título de la ventana
                     ventana.setTitle("Iniciar Sesión");
                 }
             });
         } else {
+            // Si el label es null, se muestra un error en consola
             System.err.println("Error: lblMandarLogin es null en ManejadorEventos");
         }
     }
 
+    // Método que define el evento para cambiar al panel de registro
     private void eventoMandarUsuarioRegistro() {
-        if (panel.getJlMandarSign() != null) { // Asegurarse de que el label no es null
+        // Verifica que el label no sea null
+        if (panel.getJlMandarSign() != null) {
+            // Añade un listener para detectar clics
             panel.getJlMandarSign().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent evt) {
-                    /* Evento MouseClicked para cuando se le de click a ese texto del
-                    login, cambie hacia al panel del registro */
-                    SwitchButton switchButton = ventana.getTglbRoll(); // Obtener el rol actual
-                    ventana.getTglbRoll().setEnabled(true); // Activar interruptor
-                    ventana.setTitle("Registro"); // Titulo de ventana
+                    // Se obtiene el switch de rol (Pasajero o Conductor)
+                    SwitchButton switchButton = ventana.getTglbRoll();
+                    // Se activa el switch
+                    ventana.getTglbRoll().setEnabled(true);
+                    // Se cambia el título de la ventana
+                    ventana.setTitle("Registro");
                     if (switchButton.isOn()) {
-                        // Si está "on" (Pasajero), vuelve al registro
+                        // Si el switch está on (Pasajero), se muestra el registro normal
                         ventana.mostrarRegistro();
                     } else {
-                        // Si está "off" (Conductor), vuelve al panel de registro conductor
+                        // Si está off (Conductor), se cambia al panel de registro conductor
                         panelRegistroConductor p5 = new panelRegistroConductor(ventana);
                         ventana.cambiarPanel(p5);
                     }
                 }
             });
         } else {
+            // Si el label es null, se muestra un error en consola
             System.err.println("Error: JlMandarSign es null en ManejadorEventos");
         }
     }
 
+    // Método que define el evento para "cambiar contraseña"
     private void eventoContra() {
-        if (panel.getJlCambiarContra() != null) { // Verifica que no sea null
+        // Verifica que el label no sea null
+        if (panel.getJlCambiarContra() != null) {
+            // Añade un listener para detectar clics
             panel.getJlCambiarContra().addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    //Darle funcionalidad a cambiar contraseña en este espacio
+                    // Muestra un mensaje cuando se hace clic (por ahora)
                     JOptionPane.showMessageDialog(panel,
                             "Debiste anotarla, Mala tuya.",
                             "Informacion",
@@ -83,9 +100,8 @@ public class ManejadorEventos {
                 }
             });
         } else {
+            // Si el label es null, se muestra un error en consola
             System.err.println("Error: jlCambiarContra es null en ManejadorEventos");
         }
     }
-
-    // Otros eventos
 }

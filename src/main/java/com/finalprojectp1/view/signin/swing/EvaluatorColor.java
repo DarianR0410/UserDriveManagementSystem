@@ -11,6 +11,7 @@ import java.awt.Color;
 public class EvaluatorColor {
 
     public static Color evaluate(Color color, Color colorTarget, float fraction) {
+        // Calcula valor intermedio de cada canal RGB
         int r = color.getRed()
                 + (int) ((colorTarget.getRed() - color.getRed()) * fraction + 0.5f);
         int g = color.getGreen()

@@ -68,15 +68,16 @@ public class VentanaRegistro extends javax.swing.JFrame {
      */
     private void init() {
         customizeCamps(); // llamada al metodo que personaliza los campos
-        panelContenido.setLayout(new MigLayout("fill", "[grow]", "[][]"));
+        panelContenido.setLayout(new MigLayout("fill", "[grow]", "[][]")); // llenar el espacio disponible
         panelContenido.add(panelRoll, "dock north, growx");
         panelContenido.add(panelMover, "center");
 
         panelSign.add(btnRegistrar, "align center");
         panelSign.add(lblMandarLogin, "align center, wrap");
 
+        // Añade un manejador de eventos para el interruptor 'tglbRoll', que cambia el rol de usuario al activarse o desactivarse
         tglbRoll.addEventSwitchSelected(new SwitchRolHandler(this));
-
+        // Añade un listener al botón 'btnRgTxt', que ejecutará la acción de obtener información del pasajero al hacer clic
         btnRgTxt.addMouseListener(new ObtenerInfoSignPasajero(this));
     }
 

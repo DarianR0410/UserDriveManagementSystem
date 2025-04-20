@@ -15,6 +15,7 @@ import net.miginfocom.swing.MigLayout;
  */
 public class HistorialEscaneos extends JFrame {
 
+    // Componentes de la interfaz gráfica
     private JPanel contenedor;
     private PanelRound trabajo;
     private PanelRound encabezado;
@@ -30,31 +31,32 @@ public class HistorialEscaneos extends JFrame {
     private String textoFinal;
     private SimpleDateFormat formato;
 
+    // Constructor
     public HistorialEscaneos() {
-        initComponents();
-        setTitle("Historial");
-        setExtendedState(MAXIMIZED_BOTH);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        initComponents(); // Inicializa y construye la ventana
+        setTitle("Historial"); // Título de la ventana
+        setExtendedState(MAXIMIZED_BOTH); // La ventana se abre maximizada
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE); // Cierra solo esta ventana al salir
     }
 
     private void initComponents() {
         // Paneles
         // Trabajando con el panel "contenedor"
         contenedor = new JPanel();
-        contenedor.setLayout(new MigLayout("fill"));
+        contenedor.setLayout(new MigLayout("fill")); // llena todo el espacio
         contenedor.setBackground(new Color(230, 233, 236));
-        this.getContentPane().add(contenedor);
+        this.getContentPane().add(contenedor); // Se agrega el contenedor al JFrame
 
         // Trabajando con el panel "trabajo"
         trabajo = new PanelRound();
-        trabajo.setLayout(new MigLayout("fillx, filly"));
+        trabajo.setLayout(new MigLayout("fillx, filly")); // Llena horizontal y vertical
         trabajo.setBackground(Color.WHITE);
-        // Tamaño de redondeo de los paneles, ajustalo como quiera
+        // Configura el redondeo de los bordes
         trabajo.setRoundBottomLeft(30);
         trabajo.setRoundBottomRight(30);
         trabajo.setRoundTopLeft(30);
         trabajo.setRoundTopRight(30);
-        // agregando el panel, dandole alineacion centrada y su tamaño
+        // Añadir al contenedor con tamaño fijo y centrado
         contenedor.add(trabajo, "align 50% 50%, w 700!, h 500!");
 
         // Trabajando con el panel "encabezado"
@@ -67,18 +69,18 @@ public class HistorialEscaneos extends JFrame {
 
         // Trabajando con el panel "cuerpo"
         cuerpo = new PanelRound();
-        cuerpo.setLayout(new MigLayout("insets 5, fill"));
+        cuerpo.setLayout(new MigLayout("insets 5, fill")); // Márgenes de 5 y llenar espacio
         cuerpo.setBackground(new Color(255, 51, 102, 0));
         cuerpo.setRoundBottomLeft(30);
         cuerpo.setRoundBottomRight(30);
-        trabajo.add(cuerpo, "grow");
+        trabajo.add(cuerpo, "grow"); // Que crezca y llene espacio disponible
 
         // Trabajando con el panel "footer"
         footer = new PanelRound();
         footer.setBackground(new Color(106, 90, 205, 80));
         footer.setRoundBottomLeft(30);
         footer.setRoundBottomRight(30);
-        footer.setLayout(new MigLayout("insets 0, fill", "[center]", "[center]"));
+        footer.setLayout(new MigLayout("insets 0, fill", "[center]", "[center]")); // Centrado
         trabajo.add(footer, "dock south, w 700!, h 50!");
 
         // Trabajando con el label "title"
@@ -97,8 +99,8 @@ public class HistorialEscaneos extends JFrame {
 
         // Trabajando con la lista de escaneos       
         modelo = new DefaultListModel<>();
-        lista = new JList<>(modelo);
-        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        lista = new JList<>(modelo); // Se conecta la lista con el modelo
+        lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // Solo uno a la vez
 
         lista.setCellRenderer(new DefaultListCellRenderer() {
             @Override
@@ -125,25 +127,24 @@ public class HistorialEscaneos extends JFrame {
         });
 
         scroll = new JScrollPane(lista);
-        scroll.setBorder(null);
+        scroll.setBorder(null); // Sin borde externo
 
-        //Metodo quea agrega los datos a la lista
-        insertDataList();
-        index = modelo.getSize();
-        count.setText("Total escaneos: " + index);
-        cuerpo.add(scroll, "grow, push");
+        insertDataList(); // Método que llena la lista
+        index = modelo.getSize(); // Total de elementos actuales
+        count.setText("Total escaneos: " + index); // Actualiza el contador
+        cuerpo.add(scroll, "grow, push"); // Agrega el scroll al cuerpo
 
     }
 
     private String descripcionFecha(String entrada) {
-        formato = new SimpleDateFormat("dd/MM/yyyy, HH:mm");
-        fechaHora = formato.format(new Date());
+        formato = new SimpleDateFormat("dd/MM/yyyy, HH:mm"); // Formato de fecha
+        fechaHora = formato.format(new Date()); // Fecha actual
         textoFinal = "<html><b>" + entrada + "</b><br><span style='color:gray'>" + fechaHora + "</span></html>";
         return textoFinal;
     }
 
     private void insertDataList() {
-        //Agregando datos a la lista
+        //Agregando datos a la lista en modo de prueba
         modelo.addElement(descripcionFecha("<b>Número de teléfono:</b> aaaaaaaaaaaaaaaaaaaaaaaaaaa<br>"
                 + "<b>Nombre completo:</b> aaaaaaaaaaaaaaaaaaaaaaaaaaa<br>"
                 + "<b>Numero de licencia:</b> aaaaaaaaaaaaaaaaaaaaaaaaaaa<br>"

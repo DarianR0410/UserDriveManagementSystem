@@ -7,5 +7,5 @@ package com.finalprojectp1.view.signin.swing;
  */
 public interface SwitchListener {
 
-    public void selectChange(boolean on);
+    public void selectChange(boolean on); // Método que se ejecuta al cambiar
 }

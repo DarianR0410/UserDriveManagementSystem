@@ -50,9 +50,13 @@ public class panelRegistroConductor extends javax.swing.JPanel {
 
         panelSign2.add(btnRgConductor, "align center, wrap");
         panelSign2.add(jbIraLog, "align center, wrap");
-
+        // Se agrega un listener de clic al botón 'jbIraLog'.
+        // Al hacer clic, se ejecuta la clase 'EventoConductorLogin' y te manda al login.
         jbIraLog.addMouseListener(new EventoConductorLogin(ventana));
 
+        // Se agrega un listener de clic al botón 'btnRgCondTxt'.
+        // Cuando el usuario hace clic, se ejecuta la clase 'ObtenerInfoSignConductor',
+        // la cual recolecta y valida todos los datos ingresados en el formulario de registro del conductor.
         btnRgCondTxt.addMouseListener(new ObtenerInfoSignConductor(this));
     }
 
