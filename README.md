@@ -15,8 +15,8 @@ Mira Despliegue para conocer cómo implementar el proyecto en un entorno de prod
 Para instalar y ejecutar este software necesitas:
 
 - Sistema operativo Windows
-- 16GB RAM DDR4
-- 30GB de espacio en disco
+- 4GB RAM DDR4
+- 5GB de espacio en disco
 - Procesador compatible con arquitectura de 32bits
 - Conexión a internet (Wi-Fi)
 - Java Development Kit (JDK) 8 o superior
@@ -28,23 +28,32 @@ java -version
 
 Sigue estos pasos para configurar tu entorno de desarrollo:
 
-1. Clona el repositorio
+**1. Clona el repositorio**
 
  git clone https://github.com/tuusuario/sistema-verificacion-transporte.git
 
-2. Importa el proyecto en tu IDE preferido (Eclipse, IntelliJ, etc.)
+**2. Importa el proyecto en tu IDE preferido (Eclipse, IntelliJ, etc.)**
 
 **Si usas Maven**
+
 mvn clean install 
 
-3. Configura la conexión a la base de datos SQL Server en el archivo de configuración
+**3. Configura la conexión a la base de datos SQL Server en el archivo de configuración.**
 
-Ejemplo de configuración en application.properties
-spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=svt_db
-spring.datasource.username=tu_usuario
-spring.datasource.password=tu_contraseña
+**Ejemplo de configuración en application.properties**
 
-4. Ejecuta la aplicación. 
+- spring.datasource.url=jdbc:sqlserver://localhost:1433;databaseName=svt_db
+- spring.datasource.username=tu_usuario
+- spring.datasource.password=tu_contraseña
+
+**Configura la conexión a la base de datos MySQL en el archivo de configuración.**
+
+- spring.datasource.url=jdbc:mysql://localhost:3306/svt_db?useSSL=false&serverTimezone=UTC
+- spring.datasource.username=tu_usuario
+- spring.datasource.password=tu_contraseña
+- spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+**4. Ejecuta la aplicación.**
 
 **Ejecutar desde la clase principal**
 java -jar svt-app.jar
@@ -118,12 +127,12 @@ Para desplegar el sistema en un entorno de producción:
 ### Construido con 🛠️
 - Java - Lenguaje de programación principal.
 - Java Swing - Biblioteca gráfica para la interfaz.
-- SQL Server - Sistema de gestión de bases de datos.
+- MYSQL - Sistema de gestión de bases de datos.
 
 ### Autores ✒️
 - **Darian Elizabeth Ramos Estepan** - *Desarrollo Backend* - [DarianR0410](https://github.com/DarianR0410)
-- **Joslam Jerez Perez** - *Desarrollo Frontend* - [Pendiente](https://github.com)
+- **Joslam Jerez Perez** - *Desarrollo Frontend* - [joslam11](https://github.com/joslam11)
 - **Angel Isaac Mejia Martinez** - *Desarrollo Frontend* - [IsaacEffect](https://github.com/IsaacEffect)
-- **Ashley Michel Cabrera Mena** - *Scrum Master* - [Pendiente](https://github.com)
+- **Ashley Michel Cabrera Mena** - *Scrum Master* - [Ashcm18](https://github.com/Ashcm18)
 - **Daniel Nicolas Volquez Jimenez** - *Base de datos* - [Danielito-code](https://github.com/Danielito-code)
 - **Cristopher Jose Antonio Duran Taveras** - *Análisis y Diseño* - [X-Cris-X](https://github.com/X-Cris-X)
